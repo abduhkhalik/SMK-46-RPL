@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import { useState } from "react";
-import { Link, Navigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export function FormDaftar() {
   return (
@@ -171,21 +171,19 @@ export function FormDaftar() {
 }
 
 export function FormLogin({ users }) {
-  const [userProfile, setUserProfile] = useState(null);
+  const Users = users
+//   const [email, setEmail] = useState('');
+//   const [password, setPassword] = useState('');
+  const Navigate = useNavigate()
 
   const handleLogin = (e) => {
-    e.preEventDefault;
-    try {
-      if (users === true) {
-        console.log("User Ada");
-      }
-    } catch (error) {
-      console.log(error);
-    } finally {
-      Navigate("/");
-    }
+    e.preventDefault();
+    const user = Users;
+    console.log(user)
+    Navigate('/')
   };
 
+  
   return (
     <Card color="transparent" shadow={false}>
       <div className="flex flex-col justify-center items-center">
