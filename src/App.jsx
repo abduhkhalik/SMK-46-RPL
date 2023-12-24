@@ -1,13 +1,13 @@
 import { BrowserRouter as Routers, Routes, Route } from "react-router-dom";
 import Home from "./pages/home/Home";
-import { DefaultSidebar } from "./components/Sidebar";
+import Login from "./pages/login/Login";
 
 function App() {
   return (
     <Routers>
-      <DefaultSidebar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </Routers>
   );

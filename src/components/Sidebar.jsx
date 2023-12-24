@@ -2,11 +2,16 @@ import {
   PresentationChartBarIcon,
   UsersIcon,
   Bars3BottomLeftIcon,
-  DocumentTextIcon
+  DocumentTextIcon,
 } from "@heroicons/react/24/solid";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import { List, ListItem, ListItemPrefix } from "@material-tailwind/react";
+import {
+  List,
+  ListItem,
+  ListItemPrefix,
+  Typography,
+} from "@material-tailwind/react";
 
 export function DefaultSidebar() {
   const [open, setOpen] = useState(true);
@@ -17,8 +22,12 @@ export function DefaultSidebar() {
       path: "/",
       icon: <PresentationChartBarIcon className="w-5 h-5" />,
     },
-    { link: "User", path: "/user", icon: <UsersIcon className="w-5 h-5" /> },
-    { link: "Form", path: "/form", icon: <DocumentTextIcon className="w-5 h-5"/> },
+    { link: "User", path: "/users", icon: <UsersIcon className="w-5 h-5" /> },
+    {
+      link: "Form",
+      path: "/form",
+      icon: <DocumentTextIcon className="w-5 h-5" />,
+    },
     { link: "Rekapan", path: "/rekapan" },
     { link: "Mapping", path: "/mapping" },
   ];
@@ -42,6 +51,11 @@ export function DefaultSidebar() {
         }
       >
         <div className="h-full px-1 py-4 rounded-lg overflow-y-auto bg-gray-50">
+          <div className="flex justify-center items-center">
+            <Typography variant="h3" color="blue-gray">
+              SMK 46 RPL
+            </Typography>
+          </div>
           {NavLink.map((items, index) => (
             <Link
               to={items.path}
