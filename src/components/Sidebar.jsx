@@ -51,7 +51,8 @@ export function DefaultSidebar() {
         }
       >
         <div className="h-full px-1 py-4 rounded-lg overflow-y-auto bg-gray-50">
-          <div className="flex justify-center items-center">
+          <div className="flex flex-col justify-center items-center">
+            <img src="https://www.smkn46jaktim.sch.id/images/logo.png" alt="SMK 46 RPL" className="h-14 w-14"/>
             <Typography variant="h3" color="blue-gray">
               SMK 46 RPL
             </Typography>
