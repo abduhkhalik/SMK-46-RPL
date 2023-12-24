@@ -8,6 +8,7 @@ import {
 } from "@material-tailwind/react";
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { Users } from "../users";
 
 export function FormDaftar() {
   return (
@@ -170,20 +171,26 @@ export function FormDaftar() {
   );
 }
 
-export function FormLogin({ users }) {
-  const Users = users
-//   const [email, setEmail] = useState('');
-//   const [password, setPassword] = useState('');
-  const Navigate = useNavigate()
+export function FormLogin() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const Navigate = useNavigate();
+
+  const users = Users;
 
   const handleLogin = (e) => {
     e.preventDefault();
-    const user = Users;
-    console.log(user)
-    Navigate('/')
+    try {
+      users.forEach((items) => {
+        items.email === email && items.password === password
+          ? Navigate("/")
+          : alert("User Tidak Di temukan");
+      });
+    } catch (err) {
+      console.log(err);
+    }
   };
 
-  
   return (
     <Card color="transparent" shadow={false}>
       <div className="flex flex-col justify-center items-center">
@@ -208,6 +215,7 @@ export function FormLogin({ users }) {
           <Input
             size="lg"
             placeholder="name@mail.com"
+            onChange={(e) => setEmail(e.target.value)}
             className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
             labelProps={{
               className: "before:content-none after:content-none",
@@ -220,6 +228,7 @@ export function FormLogin({ users }) {
             type="password"
             size="lg"
             placeholder="********"
+            onChange={(e) => setPassword(e.target.value)}
             className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
             labelProps={{
               className: "before:content-none after:content-none",
