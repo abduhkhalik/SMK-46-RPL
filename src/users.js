@@ -10,7 +10,7 @@ export const Users = [
     id: 2,
     nama_lengkap: "Amri",
     email: "amri123@gmail.com",
-    password: "123456",
+    password: "123",
     sekolah: "SMK 46 RPL",
   },
   {
