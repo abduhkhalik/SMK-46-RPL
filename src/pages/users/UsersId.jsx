@@ -1,16 +1,16 @@
-import { Lists } from "../../components/List";
+import { DataUsers } from "../../components/Forms";
 import { DefaultSidebar } from "../../components/Sidebar";
 import { Users } from "../../users";
 
-function UsersList() {
+function UsersId() {
   return (
     <>
       <DefaultSidebar />
       <section className="content">
         <div className="container">
-          <div className="w-full flex justify-center items-center">
-            <div className="w-full flex flex-wrap">
-              <Lists data={Users} />
+          <div className="w-full flex flex-wrap">
+            <div className="w-full flex justify-center items-center">
+              <DataUsers data={Users} />
             </div>
           </div>
         </div>
@@ -19,4 +19,4 @@ function UsersList() {
   );
 }
 
-export default UsersList;
+export default UsersId;

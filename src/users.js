@@ -15,8 +15,8 @@ export const Users = [
   },
   {
     id: 3,
-    nama_lengkap: "Amri",
-    email: "amri123@gmail.com",
+    nama_lengkap: "Thoriq",
+    email: "thoriq123@gmail.com",
     password: "123456",
     sekolah: "SMK 46 RPL",
   },
