@@ -25,7 +25,7 @@ export function DefaultSidebar() {
     { link: "User", path: "/users", icon: <UsersIcon className="w-5 h-5" /> },
     {
       link: "Form",
-      path: "/form",
+      path: "/forms",
       icon: <DocumentTextIcon className="w-5 h-5" />,
     },
     { link: "Rekapan", path: "/rekapan" },

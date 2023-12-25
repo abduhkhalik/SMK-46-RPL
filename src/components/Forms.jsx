@@ -7,7 +7,7 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export function FormDaftar() {
   return (
@@ -260,16 +260,15 @@ export function FormLogin({ users }) {
   );
 }
 
-// eslint-disable-next-line react/prop-types
-export function DataUsers({ data }) {
-  const { id } = useParams();
-  const [userData, setUserData] = useState({});
+export function DataUsers() {
+  // const { id } = useParams();
+  // const [userData, setUserData] = useState({});
 
-  useEffect(() => {
-    setUserData();
-  }, [id]);
+  // useEffect(() => {
+  //   setUserData(id );
+  // }, [id]);
 
-  console.log(userData);
+  // console.log(userData);
 
   return (
     <Card color="transparent" shadow={false}>
@@ -345,7 +344,12 @@ export function DataUsers({ data }) {
               <Typography variant="h6" color="blue-gray" className="mb-1">
                 Kelas
               </Typography>
-              <Select disabled name="kelas" className="w-full" label="Pilih Kelas">
+              <Select
+                disabled
+                name="kelas"
+                className="w-full"
+                label="Pilih Kelas"
+              >
                 <Option>Kelas 10</Option>
                 <Option>Kelas 11</Option>
                 <Option>Kelas 12</Option>
@@ -416,6 +420,221 @@ export function DataUsers({ data }) {
           </Select>
         </div>
       </div>
+    </Card>
+  );
+}
+
+export function FormSiswa() {
+  return (
+    <Card color="transparent" shadow={false}>
+      <div className="flex flex-col justify-center items-center">
+        <Typography variant="h4" color="blue-gray" className="text-center">
+          Formulir Siswa
+        </Typography>
+      </div>
+      <form
+        action="/daftar"
+        method="post"
+        className="mt-8 mb-2 w-full max-w-screen-lg"
+      >
+        <div className="mb-1 flex flex-col gap-3">
+          <Typography variant="h6" color="blue-gray" className="-mb-3">
+            Nama Lengkap
+          </Typography>
+          <Input
+            size="lg"
+            name="nama_lengkap"
+            placeholder="Nama Lengkap"
+            type="text"
+            className=" w-full !border-t-blue-gray-200 focus:!border-t-gray-900"
+            labelProps={{
+              className: "before:content-none after:content-none",
+            }}
+          />
+          <Typography variant="h6" color="blue-gray" className="-mb-3">
+            NIS
+          </Typography>
+          <Input
+            size="lg"
+            type="number"
+            name="nis"
+            placeholder="Masukan NIS Anda"
+            className=" w-full !border-t-blue-gray-200 focus:!border-t-gray-900"
+            labelProps={{
+              className: "before:content-none after:content-none",
+            }}
+          />
+          <Typography variant="h6" color="blue-gray" className="-mb-3">
+            Tempat Tanggal Lahir
+          </Typography>
+          <Input
+            size="lg"
+            type="text"
+            name="ttl"
+            placeholder="Depok 12/12/1999"
+            className=" w-full !border-t-blue-gray-200 focus:!border-t-gray-900"
+            labelProps={{
+              className: "before:content-none after:content-none",
+            }}
+          />
+          <Typography variant="h6" color="blue-gray" className="-mb-3">
+            Umur
+          </Typography>
+          <Input
+            type="number"
+            name="umur"
+            size="lg"
+            placeholder="Masukan Umur Anda"
+            className="w-full !border-t-blue-gray-200 focus:!border-t-gray-900"
+            labelProps={{
+              className: "before:content-none after:content-none",
+            }}
+          />
+          <div className="flex justify-center items-center gap-5">
+            <div>
+              <Typography variant="h6" color="blue-gray" className="mb-1">
+                Alamat
+              </Typography>
+              <Input
+                type="text"
+                name="alamat"
+                size="lg"
+                placeholder="Masukan Alamat Anda"
+                className="w-full !border-t-blue-gray-200 focus:!border-t-gray-900"
+                labelProps={{
+                  className: "before:content-none after:content-none",
+                }}
+              />
+            </div>
+            <div>
+              <Typography variant="h6" color="blue-gray" className="mb-1">
+                Kelurahan
+              </Typography>
+              <Input
+                type="text"
+                name="kelurahan"
+                size="lg"
+                placeholder="Masukan Kelurahan Anda"
+                className="w-full !border-t-blue-gray-200 focus:!border-t-gray-900"
+                labelProps={{
+                  className: "before:content-none after:content-none",
+                }}
+              />
+            </div>
+          </div>
+          <div className="flex justify-center items-center gap-5">
+            <div>
+              <Typography variant="h6" color="blue-gray" className="mb-1">
+                Kecamatan
+              </Typography>
+              <Input
+                type="text"
+                name="kecamatan"
+                size="lg"
+                placeholder="Masukan Kecamatan Anda"
+                className="w-full !border-t-blue-gray-200 focus:!border-t-gray-900"
+                labelProps={{
+                  className: "before:content-none after:content-none",
+                }}
+              />
+            </div>
+            <div>
+              <Typography variant="h6" color="blue-gray" className="mb-1">
+                Kabupaten
+              </Typography>
+              <Input
+                type="text"
+                name="kabupaten"
+                size="lg"
+                placeholder="Masukan Alamat Anda"
+                className="w-full !border-t-blue-gray-200 focus:!border-t-gray-900"
+                labelProps={{
+                  className: "before:content-none after:content-none",
+                }}
+              />
+            </div>
+          </div>
+          <Typography variant="h6" color="blue-gray" className="mb-1">
+            Provinsi
+          </Typography>
+          <Input
+            type="text"
+            name="provinsi"
+            size="lg"
+            placeholder="Masukan Provinsi Anda"
+            className="w-full !border-t-blue-gray-200 focus:!border-t-gray-900"
+            labelProps={{
+              className: "before:content-none after:content-none",
+            }}
+          />
+          <div className="flex justify-center items-center gap-5">
+            <div>
+              <Typography variant="h6" color="blue-gray" className="mb-1">
+                Kode Kelurahan
+              </Typography>
+              <Input
+                type="number"
+                name="kode_kelurahan"
+                size="lg"
+                placeholder="Kode Kelurahan"
+                className="w-full !border-t-blue-gray-200 focus:!border-t-gray-900"
+                labelProps={{
+                  className: "before:content-none after:content-none",
+                }}
+              />
+            </div>
+            <div>
+              <Typography variant="h6" color="blue-gray" className="mb-1">
+                Kode Kecamatan
+              </Typography>
+              <Input
+                type="number"
+                name="kode_kecamatan"
+                size="lg"
+                placeholder="Kode Kecamatan"
+                className="w-full !border-t-blue-gray-200 focus:!border-t-gray-900"
+                labelProps={{
+                  className: "before:content-none after:content-none",
+                }}
+              />
+            </div>
+          </div>
+          <div className="flex justify-center items-center gap-5">
+            <div>
+              <Typography variant="h6" color="blue-gray" className="mb-1">
+                Kode Kabupaten
+              </Typography>
+              <Input
+                type="number"
+                name="kode_kabupaten"
+                size="lg"
+                placeholder="Kode Kecamatan"
+                className="w-full !border-t-blue-gray-200 focus:!border-t-gray-900"
+                labelProps={{
+                  className: "before:content-none after:content-none",
+                }}
+              />
+            </div>
+            <div>
+              <Typography variant="h6" color="blue-gray" className="mb-1">
+                Kode Provinsi
+              </Typography>
+              <Input
+                type="number"
+                name="kode_provinsi"
+                size="lg"
+                placeholder="Kode Kecamatan"
+                className="w-full !border-t-blue-gray-200 focus:!border-t-gray-900"
+                labelProps={{
+                  className: "before:content-none after:content-none",
+                }}
+              />
+            </div>
+          </div>
+        </div>
+
+        <Button className="mt-6 w-full">Selanjutnya</Button>
+      </form>
     </Card>
   );
 }
