@@ -6,9 +6,8 @@ import {
   Option,
   Typography,
 } from "@material-tailwind/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { Users } from "../users";
 
 export function FormDaftar() {
   return (
@@ -171,20 +170,26 @@ export function FormDaftar() {
   );
 }
 
-export function FormLogin() {
+// eslint-disable-next-line react/prop-types
+export function FormLogin({ users }) {
+  const [user, setUser] = useState(null);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const Navigate = useNavigate();
 
-  const users = Users;
+  useEffect(() => {
+    setUser(users);
+  }, [users]);
+
+  console.log();
 
   const handleLogin = (e) => {
     e.preventDefault();
     try {
-      users.forEach((items) => {
+      user.find((items) => {
         items.email === email && items.password === password
           ? Navigate("/")
-          : alert("User Tidak Di temukan");
+          : "User Tidak Di temukan";
       });
     } catch (err) {
       console.log(err);
@@ -236,7 +241,12 @@ export function FormLogin() {
           />
         </div>
 
-        <Button className="mt-6" fullWidth onClick={(e) => handleLogin(e)}>
+        <Button
+          className="mt-6"
+          fullWidth
+          type="submit"
+          onClick={(e) => handleLogin(e)}
+        >
           Masuk
         </Button>
         <Typography color="gray" className="mt-4 text-center font-normal">
