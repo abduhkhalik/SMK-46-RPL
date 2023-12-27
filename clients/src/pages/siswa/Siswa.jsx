@@ -1,7 +1,9 @@
 
 function Siswa() {
   return (
-    <section className="content">Siswa</section>
+    <section className="content">
+      
+    </section>
   )
 }
 

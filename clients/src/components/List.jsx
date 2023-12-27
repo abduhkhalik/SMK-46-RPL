@@ -18,15 +18,15 @@ export function Lists({ data }) {
     setUsersData(data);
   }, [data]);
 
-  const handleRoutes = (nama_lengkap) => {
-    Navigate(`/users/${nama_lengkap}`);
+  const handleRoutes = (id) => {
+    Navigate(`/users/${id}`);
   };
 
   return (
     <Card className="w-full">
       <List>
         {usersData.map((items) => (
-          <ListItem key={items.id} onClick={() => handleRoutes(items.nama_lengkap)}>
+          <ListItem key={items.id} onClick={() => handleRoutes(items.id)}>
             <ListItemPrefix>
               <Avatar
                 variant="circular"

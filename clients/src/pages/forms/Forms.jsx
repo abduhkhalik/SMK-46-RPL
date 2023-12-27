@@ -1,5 +1,5 @@
-import { FormSiswa } from "../../components/Forms";
 import { DefaultSidebar } from "../../components/Sidebar";
+import { DefaultStepper } from "../../components/SteperFrom";
 
 function Forms() {
   return (
@@ -9,7 +9,7 @@ function Forms() {
         <div className="container">
           <div className="w-full flex flex-wrap">
             <div className="w-full flex justify-center items-center">
-              <FormSiswa />
+              <DefaultStepper />
             </div>
           </div>
         </div>

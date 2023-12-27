@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import {
   Card,
   Input,
@@ -7,7 +8,7 @@ import {
   Typography,
 } from "@material-tailwind/react";
 import { useEffect, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 export function FormDaftar() {
   return (
@@ -170,7 +171,6 @@ export function FormDaftar() {
   );
 }
 
-// eslint-disable-next-line react/prop-types
 export function FormLogin({ users }) {
   const [user, setUser] = useState(null);
   const [email, setEmail] = useState("");
@@ -260,15 +260,14 @@ export function FormLogin({ users }) {
   );
 }
 
-export function DataUsers() {
-  // const { id } = useParams();
-  // const [userData, setUserData] = useState({});
+export function DataUsers({ data }) {
+  const { id } = useParams();
+  const [userData, setUserData] = useState({});
 
-  // useEffect(() => {
-  //   setUserData(id );
-  // }, [id]);
-
-  // console.log(userData);
+  useEffect(() => {
+    const users = data.find((items) => items.id === parseInt(id));
+    setUserData(users);
+  }, [id, data]);
 
   return (
     <Card color="transparent" shadow={false}>
@@ -277,6 +276,7 @@ export function DataUsers() {
           Data User
         </Typography>
       </div>
+
       <div className="mt-8 mb-2 w-full max-w-screen-lg">
         <div className="mb-1 flex flex-col gap-3">
           <Typography variant="h6" color="blue-gray" className="-mb-3">
@@ -284,7 +284,7 @@ export function DataUsers() {
           </Typography>
           <Input
             size="lg"
-            // value={userData.nama_lengkap}
+            value={userData.nama_lengkap}
             disabled
             name="nama_lengkap"
             placeholder="Nama Lengkap"
@@ -299,26 +299,12 @@ export function DataUsers() {
           </Typography>
           <Input
             size="lg"
-            // value={userData}
+            value={userData.email}
             type="email"
             name="email"
             disabled
             placeholder="name@mail.com"
             className=" w-full !border-t-blue-gray-200 focus:!border-t-gray-900"
-            labelProps={{
-              className: "before:content-none after:content-none",
-            }}
-          />
-          <Typography variant="h6" color="blue-gray" className="-mb-3">
-            Password
-          </Typography>
-          <Input
-            type="password"
-            name="password"
-            disabled
-            size="lg"
-            placeholder="********"
-            className="w-full !border-t-blue-gray-200 focus:!border-t-gray-900"
             labelProps={{
               className: "before:content-none after:content-none",
             }}
@@ -632,8 +618,6 @@ export function FormSiswa() {
             </div>
           </div>
         </div>
-
-        <Button className="mt-6 w-full">Selanjutnya</Button>
       </form>
     </Card>
   );
